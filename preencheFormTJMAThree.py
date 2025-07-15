@@ -162,12 +162,11 @@ def main():
             count = colCount.text_input('Conta',  key=allKeys[9], value=st.session_state[allKeys[9]])
             countV = colCountV.text_input('Final',  key=allKeys[10], value=st.session_state[allKeys[10]])
         with colTerm:
-            st.write(st.session_state[allKeys[13]])
             cod, codV = st.columns([6.2, 2])
             cpf = cod.text_input('CPF', key=allKeys[11], value=st.session_state[allKeys[11]])
             cpfV = codV.text_input('Verificador', key=allKeys[12], value=st.session_state[allKeys[12]])
-            edital = st.selectbox('Edital Conjunto TJMA/PGE-MA_2025', optionsEdit, key='num_edital', index=0)
-            rodada = st.selectbox('Edital da Rodada de Chamamento n.°', optionsRod, key='num_rodad', index=2)
+            edital = st.selectbox('Edital Conjunto TJMA/PGE-MA_2025', optionsEdit, key=keys[Edital[0]], index=st.session_state[[Edital[0]]])
+            rodada = st.selectbox('Edital da Rodada de Chamamento n.°', optionsRod, key=keys[Edital[1]], index=st.session_state[[Edital[1]]])
     if modelOne and modelTwo:
         del st.session_state[allKeys[7]]
         del st.session_state[allKeys[8]]
