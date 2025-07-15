@@ -84,7 +84,8 @@ def zeraWidget(opt):
                 elif k in [7, 8]:
                     st.session_state[key] = False
                 else:
-                    st.session_state[key] = ''      
+                    st.session_state[key] = '' 
+        st.write(st.session_state)
     else:
         for k, key in enumerate(allKeys):
             del st.session_state[key] 
@@ -179,7 +180,6 @@ def main():
                                     mime='application/octet-stream',
                     )
         if colClear.button('Limpar dados'):
-            zeraWidget(0)
             zeraWidget(1)
                 
 if __name__ == '__main__':
