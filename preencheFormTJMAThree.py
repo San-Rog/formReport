@@ -161,17 +161,17 @@ def main():
             else:
                 pdfCreate = createForm()
                 if len(pdfCreate) > 0:
-                    colDown.download_button(
+                    if colDown.download_button(
                                     label='Download',
                                     data=pdfCreate,
                                     file_name='formulário_TJMA_preenchido.pdf',
                                     mime='application/octet-stream',
-                )
-                if st.button('Limpar'):
-                    for key in st.session_state:
-                        del st.session_state.key
-                    st.rerun()
-                    zeraWidget(0)
+                    )
+                    if st.button('Limpar'):
+                        for key in st.session_state:
+                            del st.session_state.key
+                        st.rerun()
+                        zeraWidget(0)
                 
 if __name__ == '__main__':
     st.set_page_config(layout="wide")
