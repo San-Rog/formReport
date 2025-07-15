@@ -76,21 +76,14 @@ def message(head, text):
     config()
 
 def zeraWidget(opt):
-    if opt == 0:
-        for k, key in enumerate(allKeys):
-            if key not in st.session_state:
-                if k == 3:
-                    st.session_state[key] = []
-                elif k in [7, 8]:
-                    st.session_state[key] = False
-                else:
-                    st.session_state[key] = '' 
-    else:
-        #zeraWidget(0)
-        for k, key in enumerate(st.session_state):
-            del st.session_state[key] 
-            zeraWidget(0)
-            st.rerun()
+    for k, key in enumerate(allKeys):
+        if key not in st.session_state:
+            if k == 3:
+                st.session_state[key] = []
+             elif k in [7, 8]:
+                st.session_state[key] = False
+            else:
+                st.session_state[key] = '' 
 
 def ckeckPlaces(): 
     placeVoid = False
@@ -174,7 +167,11 @@ def main():
                                     file_name='formulário_TJMA_preenchido.pdf',
                                     mime='application/octet-stream',
                     )
-                    zeraWidget(1)
+                    ifst.button('Limpar'):
+                    for key in st.session_state:
+                        del st.session_state.key
+                    st.rerun()
+                    zeraWidget(0)
                 
 if __name__ == '__main__':
     st.set_page_config(layout="wide")
