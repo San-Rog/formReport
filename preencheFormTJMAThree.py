@@ -89,6 +89,7 @@ def zeraWidget(opt):
     else:
         for k, key in enumerate(st.session_state):
             del st.session_state[key] 
+            st.rerun()
             zeraWidget(0)
 
 def ckeckPlaces(): 
