@@ -75,8 +75,8 @@ def message(head, text):
         st.markdown(text)
     config()
 
-def zeraWidget(0):
-    if mode == 0:
+def zeraWidget(opt):
+    if opt == 0:
         if 'prc' not in st.session_state:
             st.session_state['prc'] = ''
     else:
