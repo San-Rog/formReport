@@ -81,15 +81,19 @@ def zeraWidget(opt):
             if key not in st.session_state:
                 if k == 3:
                     st.session_state[key] = [optionsCred[0]]
+                elif k in [7, 8]:
+                    st.session_state[key] = False
                 else:
                     st.session_state[key] = ''        
     else:
         for k, key in enumerate(allKeys):
             del st.session_state[key] 
             if k == 3:
-                 st.session_state[key] = [optionsCred[0]]
+                st.session_state[key] = [optionsCred[0]]
+            elif k in [7, 8]:
+                st.session_state[key] = False
             else:
-                st.session_state[key] = ''
+                st.session_state[key] = ''    
 
 def ckeckPlaces(): 
     placeVoid = False
@@ -113,10 +117,10 @@ def main():
     global day, mont, year, keysCount
     global optionsCount, optionsCred
     global allKeys 
-    allKeys = ['prc', 'req', 'process', 'credyt', 'banker', 'num_agency', 'digit_agency']
+    allKeys = ['prc', 'req', 'process', 'credyt', 'banker', 'num_agency', 'digit_agency', 
+              'count_cc', 'count_cp']
     optionsEdit = [str(n) for n in range(1, 5)]
     optionsRod = [str(n) for n in range(1, 5)]
-    keysCount = ['um', 'dois']
     iniKeys(0, '')
     optionsCred = ["Crédito Principal", "Honorários Contratuais", "Honorários Sucumbenciais"] 
     optionsCount = ["Conta-Corrente", "Conta-Poupança"]   
@@ -138,8 +142,8 @@ def main():
             verify = colDigit.text_input('Dígito', key=allKeys[6], value=st.session_state[allKeys[6]])
             st.caption('')
             colOne, colTwo = st.columns(spec=2)
-            modelOne = colOne.checkbox(optionsCount[0], key=keysCount[0], value=st.session_state[keysCount[0]])
-            modelTwo = colTwo.checkbox(optionsCount[1], key=keysCount[1], value=st.session_state[keysCount[1]])
+            modelOne = colOne.checkbox(optionsCount[0], key=allKeys[7], value=st.session_state[allKeys[7]])
+            modelTwo = colTwo.checkbox(optionsCount[1],  key=allKeys[8], value=st.session_state[allKeys[8]])
             colCount, colCountV = st.columns([6.2, 2])
             count = colCount.text_input('Conta', key='count')
             countV = colCountV.text_input('Final', key='countV')
@@ -149,9 +153,10 @@ def main():
            cpfV = codV.text_input('Verificador', key='cpfV')
            edital = st.selectbox('Edital Conjunto TJMA/PGE-MA nº___/2025', optionsEdit, index=0, key='edital')
            rodada = st.selectbox('Edital da Rodada de Chamamento n.°', optionsRod, index=2, key='rodada')
+    keysCount = [allKeys[7], allKeys[8]]
     if modelOne and modelTwo:
-        del st.session_state[keysCount[0]]
-        del st.session_state[keysCount[1]]
+        del st.session_state[allKeys[7]]
+        del st.session_state[allKeys[8]]
         iniKeys(0, keysCount[1])
         message('Dupla marcação de contas bancárias', 'Assinale apenas conta-corrente ou conta-poupança!')
         time.sleep(3)
