@@ -179,6 +179,7 @@ def main():
                                     mime='application/octet-stream',
                     )
         if colClear.button('Limpar dados'):
+            zeraWidget(0)
             zeraWidget(1)
                 
 if __name__ == '__main__':
