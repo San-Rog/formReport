@@ -76,7 +76,6 @@ def message(head, text):
     config()
 
 def zeraWidget(opt):
-    allKeys = ['prc', 'req']
     if opt == 0:
         for key in allKeys:
             if key not in st.session_state:
@@ -108,6 +107,8 @@ def main():
     global formPdf, precat, requer, proc, obj, modelOne, modelTwo, bank, agency, verify, cpf, cpfV, edital, rodada, count, countV
     global day, mont, year, keysCount
     global optionsCount, optionsCred
+    global allKeys 
+    allKeys = ['prc', 'req']
     optionsEdit = [str(n) for n in range(1, 5)]
     optionsRod = [str(n) for n in range(1, 5)]
     keysCount = ['um', 'dois']
