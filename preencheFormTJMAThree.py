@@ -152,10 +152,8 @@ def main():
            cod, codV = st.columns([6.2, 2])
            cpf = cod.text_input('CPF', key=allKeys[11], value=st.session_state[allKeys[11]])
            cpfV = codV.text_input('Verificador', key=allKeys[12], value=st.session_state[allKeys[12]])
-           edital = st.selectbox('Edital Conjunto TJMA/PGE-MA nº___/2025', optionsEdit, 
-                                 index=0,  key=allKeys[13])
-           rodada = st.selectbox('Edital da Rodada de Chamamento n.°', optionsRod, 
-                                 index=2,  key=allKeys[14])
+           edital = st.selectbox('Edital Conjunto TJMA/PGE-MA nº___/2025', optionsEdit, key=allKeys[13])
+           rodada = st.selectbox('Edital da Rodada de Chamamento n.°', optionsRod, key=allKeys[14])
     if modelOne and modelTwo:
         del st.session_state[allKeys[7]]
         del st.session_state[allKeys[8]]
