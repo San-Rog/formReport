@@ -85,13 +85,7 @@ def zeraWidget(opt):
                 elif k in [7, 8]:
                     st.session_state[key] = False
                 else:
-                    st.session_state[key] = '' 
-        for k, key in enumerate(keysEdital):
-            if key not in st.session_state:
-                if k == 1:
-                    st.session_state[key] = 0
-                else:
-                    st.session_state[key] = 2        
+                    st.session_state[key] = ''      
     else:
         for k, key in enumerate(allKeys):
             del st.session_state[key] 
@@ -100,13 +94,7 @@ def zeraWidget(opt):
             elif k in [7, 8]:
                 st.session_state[key] = False
             else:
-                st.session_state[key] = ''   
-        for k, key in enumerate(keysEdital):
-            del st.session_state[key]
-            if k == 1:
-                st.session_state[key] = 0
-            else:
-                st.session_state[key] = 2 
+                st.session_state[key] = ''           
             st.rerun()
 
 def ckeckPlaces(): 
@@ -166,8 +154,8 @@ def main():
             cod, codV = st.columns([6.2, 2])
             cpf = cod.text_input('CPF', key=allKeys[11], value=st.session_state[allKeys[11]])
             cpfV = codV.text_input('Verificador', key=allKeys[12], value=st.session_state[allKeys[12]])
-            edital = st.selectbox('Edital Conjunto TJMA/PGE-MA_2025', optionsEdit, key=keysEdital[0], index=st.session_state[keysEdital[0]])
-            rodada = st.selectbox('Edital da Rodada de Chamamento n.°', optionsRod, key=keysEdital[1], index=st.session_state[keysEdital[1]])
+            edital = st.selectbox('Edital Conjunto TJMA/PGE-MA_2025', optionsEdit, key='num_edital', index=0)
+            rodada = st.selectbox('Edital da Rodada de Chamamento n.°', optionsRod, key='num_rodad', index=2)
     if modelOne and modelTwo:
         del st.session_state[allKeys[7]]
         del st.session_state[allKeys[8]]
