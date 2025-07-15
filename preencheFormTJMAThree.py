@@ -75,9 +75,10 @@ def message(head, text):
         st.markdown(text)
     config()
 
-def zeraWidget():
-    if 'prc' not in st.session_state:
-        st.session_state['prc'] = ''
+def zeraWidget(0):
+    if mode == 0:
+        if 'prc' not in st.session_state:
+            st.session_state['prc'] = ''
     else:
         del st.session_state.prc 
         st.session_state['prc'] = ''
@@ -159,9 +160,9 @@ def main():
                                 file_name='formulário_TJMA_preenchido.pdf',
                                 mime='application/octet-stream',
                 )     
-                zeraWidget()
+                zeraWidget(1)
                 
 if __name__ == '__main__':
-    zeraWidget()
+    zeraWidget(0)
     st.set_page_config(layout="wide")
     main()
