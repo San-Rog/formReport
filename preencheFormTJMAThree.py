@@ -79,17 +79,11 @@ def zeraWidget(opt):
     if opt == 0:
         for k, key in enumerate(allKeys):
             if key not in st.session_state:
-                if k == 3:
-                    st.session_state[key] = list()
-                else:
-                    st.session_state[key] = ''        
+                st.session_state[key] = ''        
     else:
         for k, key in enumerate(allKeys):
             del st.session_state[key] 
-            if k == 3:
-                 st.session_state[key] = list()
-            else:
-                st.session_state[key] = '' 
+            st.session_state[key] = '' 
 
 def ckeckPlaces(): 
     placeVoid = False
