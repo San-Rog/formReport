@@ -107,6 +107,7 @@ def zeraWidget(opt):
                 st.session_state[key] = 0
             else:
                 st.session_state[key] = 2 
+            st.rerun()
 
 def ckeckPlaces(): 
     placeVoid = False
