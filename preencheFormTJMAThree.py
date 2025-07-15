@@ -166,7 +166,7 @@ if __name__ == '__main__':
     global optionsCount, optionsCred
     optionsCred = ["Crédito Principal", "Honorários Contratuais", "Honorários Sucumbenciais"] 
     optionsCount = ["Conta-Corrente", "Conta-Poupança"]  
-    allKeys = ['prc', 'req', 'process', 'object']
+    allKeys = ['prc', 'req', 'process', 'ojct']
     zeraWidget(0)
     st.set_page_config(layout="wide")
     main()
