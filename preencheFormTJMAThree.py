@@ -89,8 +89,7 @@ def zeraWidget(opt):
     else:
         st.write(st.session_state)
         for key in enumerate(st.session_state):
-            if key in allKeys:
-                del st.session_state[key] 
+            del st.session_state[key] 
             st.rerun()
             zeraWidget(0)
         st.write(st.session_state)
