@@ -79,7 +79,7 @@ def zeraWidget(opt):
     if opt == 0:
         for k, key in enumerate(allKeys):
             if key not in st.session_state:
-                if k == 3:
+                if k == 3 or k == 13:
                     st.session_state[key] = []
                 elif k in [7, 8]:
                     st.session_state[key] = False
@@ -88,7 +88,7 @@ def zeraWidget(opt):
     else:
         for k, key in enumerate(allKeys):
             del st.session_state[key] 
-            if k == 3:
+            if k == 3 or k == 13:
                 st.session_state[key] = []
             elif k in [7, 8]:
                 st.session_state[key] = False
@@ -149,11 +149,11 @@ def main():
             count = colCount.text_input('Conta',  key=allKeys[9], value=st.session_state[allKeys[9]])
             countV = colCountV.text_input('Final',  key=allKeys[10], value=st.session_state[allKeys[10]])
         with colTerm:
-           cod, codV = st.columns([6.2, 2])
-           cpf = cod.text_input('CPF', key=allKeys[11], value=st.session_state[allKeys[11]])
-           cpfV = codV.text_input('Verificador', key=allKeys[12], value=st.session_state[allKeys[12]])
-           edital = st.selectbox('Edital Conjunto TJMA/PGE-MA nº___/2025', optionsEdit, key=allKeys[13])
-           rodada = st.selectbox('Edital da Rodada de Chamamento n.°', optionsRod, key=allKeys[14])
+            cod, codV = st.columns([6.2, 2])
+            cpf = cod.text_input('CPF', key=allKeys[11], value=st.session_state[allKeys[11]])
+            cpfV = codV.text_input('Verificador', key=allKeys[12], value=st.session_state[allKeys[12]])
+            edital = st.selectbox('Edital Conjunto TJMA/PGE-MA nº___/2025', optionsEdit, key=allKeys[13])
+            rodada = st.selectbox('Edital da Rodada de Chamamento n.°', optionsRod, key=allKeys[14])
     if modelOne and modelTwo:
         del st.session_state[allKeys[7]]
         del st.session_state[allKeys[8]]
