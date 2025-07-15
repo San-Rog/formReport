@@ -6,9 +6,9 @@ from datetime import date
 
 def defineNow():
     dateNow = date.today()
-    day= dateNow.day
-    mont = dateNow.month
-    year = dateNow.year
+    day= str(dateNow.day)
+    mont = str(dateNow.month)
+    year = str(dateNow.year)
     return (day, mont, year)
 
 def createForm():
