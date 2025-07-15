@@ -77,9 +77,12 @@ def message(head, text):
 
 def zeraWidget(opt):
     if opt == 0:
-        for key in allKeys:
+        for k, key in enumerate(allKeys):
             if key not in st.session_state:
-                st.session_state[key] = ''
+                if k == 3:
+                    st.session_state[key] = optionsCred[0]
+                else:
+                    st.session_state[key] = ''
         
     else:
         for key in allKeys:
@@ -122,7 +125,7 @@ def main():
             precat = st.text_input('Precatório n°', key=allKeys[0], value=st.session_state[allKeys[0]])
             requer = st.text_input('Requerente(s)', key=allKeys[1], value=st.session_state[allKeys[1]])
             proc = st.text_input('Referência (Ação Originária/Execução)', key=allKeys[2], value=st.session_state[allKeys[2]])
-            obj = st.multiselect('Crédito Negociado', optionsCred, default=[optionsCred[0]], key='obj')
+            obj = st.multiselect('Crédito Negociado', optionsCred, default=st.session_state[allKeys[3]], key=allKeys[3])
         with colBank:
             bank = st.text_input('Banco', key='bank')
             colAgency, colDigit = st.columns([6.2, 2])
@@ -167,7 +170,7 @@ def main():
                 
 if __name__ == '__main__':
     global allKeys 
-    allKeys = ['prc', 'req', 'process']
+    allKeys = ['prc', 'req', 'process', 'obj']
     zeraWidget(0)
     st.set_page_config(layout="wide")
     main()
