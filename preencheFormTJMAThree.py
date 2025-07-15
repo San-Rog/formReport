@@ -77,7 +77,8 @@ def message(head, text):
 
 def zeraWidget():
     allKeys = ['precat', 'requer', 'proc', 'bank', 'agency', 'verify', 'cpf', 'cpfV', 'edital', 'rodada', 'count', 'countV']
-    pass
+    if allKeys[0] not in st.session_state:
+         st.session_state[key] = ''
 
 def ckeckPlaces(): 
     placeVoid = False
@@ -104,6 +105,7 @@ def main():
     optionsRod = [str(n) for n in range(1, 5)]
     keysCount = ['um', 'dois']
     iniKeys(0, '')
+    zeraWidget()
     optionsCred = ["Crédito Principal", "Honorários Contratuais", "Honorários Sucumbenciais"] 
     optionsCount = ["Conta-Corrente", "Conta-Poupança"]   
     formPdf = 'formTJMA.pdf'
@@ -112,7 +114,7 @@ def main():
     with st.container(border=2):
         colPrecat, colBank, colTerm = st.columns([2.4, 2, 2], gap='small', vertical_alignment='center')
         with colPrecat:
-            precat = st.text_input('Precatório n°', key='precat')
+            precat = st.text_input('Precatório n°', key=allKeys[0], st.session_state[allKeys[0]])
             requer = st.text_input('Requerente(s)', key='requer')
             proc = st.text_input('Referência (Ação Originária/Execução)', key='proc')
             obj = st.multiselect('Crédito Negociado', optionsCred, default=[optionsCred[0]], key='obj')
@@ -155,8 +157,9 @@ def main():
                                 data=pdfCreate,
                                 file_name='formulário_TJMA_preenchido.pdf',
                                 mime='application/octet-stream',
-                )            
-    
+                )     
+                zeraWidget()
+                
 if __name__ == '__main__':
     st.set_page_config(layout="wide")
     main()
