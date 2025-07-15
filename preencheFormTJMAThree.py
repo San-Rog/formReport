@@ -78,11 +78,14 @@ def message(head, text):
 def zeraWidget(opt):
     if opt == 0:
         for k, key in enumerate(allKeys):
+            print('key', key)
             if key not in st.session_state:
-                if k == 3 or k == 13:
+                if k == 3:
                     st.session_state[key] = []
                 elif k in [7, 8]:
                     st.session_state[key] = False
+                elif k == 13:
+                    st.session_state[key]  = 0
                 else:
                     st.session_state[key] = ''        
     else:
@@ -92,6 +95,8 @@ def zeraWidget(opt):
                 st.session_state[key] = []
             elif k in [7, 8]:
                 st.session_state[key] = False
+            elif k == 13:
+                st.session_state[key]  = 0
             else:
                 st.session_state[key] = ''    
 
