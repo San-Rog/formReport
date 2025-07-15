@@ -79,8 +79,9 @@ def zeraWidget(opt):
     if opt == 0:
         if 'prc' not in st.session_state:
             st.session_state['prc'] = ''
+        
     else:
-        del st.session_state.prc 
+        del st.session_state['prc'] 
         st.session_state['prc'] = ''
 
 def ckeckPlaces(): 
@@ -117,7 +118,7 @@ def main():
         colPrecat, colBank, colTerm = st.columns([2.4, 2, 2], gap='small', vertical_alignment='center')
         with colPrecat:
             precat = st.text_input('Precatório n°', key='prc', value=st.session_state.prc)
-            requer = st.text_input('Requerente(s)', key='requer')
+            requer = st.text_input('Requerente(s)', key='req', value=st.session_state.req)
             proc = st.text_input('Referência (Ação Originária/Execução)', key='proc')
             obj = st.multiselect('Crédito Negociado', optionsCred, default=[optionsCred[0]], key='obj')
         with colBank:
