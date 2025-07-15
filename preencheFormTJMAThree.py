@@ -166,8 +166,8 @@ def main():
                                     data=pdfCreate,
                                     file_name='formulário_TJMA_preenchido.pdf',
                                     mime='application/octet-stream',
-                    )
-                    ifst.button('Limpar'):
+                )
+                if st.button('Limpar'):
                     for key in st.session_state:
                         del st.session_state.key
                     st.rerun()
