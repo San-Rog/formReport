@@ -118,7 +118,7 @@ def main():
             precat = st.text_input('Precatório n°', key=allKeys[0], value=st.session_state[allKeys[0]])
             requer = st.text_input('Requerente(s)', key=allKeys[1], value=st.session_state[allKeys[1]])
             proc = st.text_input('Referência (Ação Originária/Execução)', key=allKeys[2], value=st.session_state[allKeys[2]])
-            obj = st.multiselect('Crédito Negociado', optionsCred, key=allKeys[3], value=st.session_state[allKeys[3]])
+            obj = st.multiselect('Crédito Negociado', optionsCred, key=allKeys[3])
         with colBank:
             bank = st.text_input('Banco', key='bank')
             colAgency, colDigit = st.columns([6.2, 2])
