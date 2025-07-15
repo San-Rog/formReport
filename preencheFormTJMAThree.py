@@ -85,6 +85,12 @@ def zeraWidget(opt):
                     st.session_state[key] = False
                 else:
                     st.session_state[key] = '' 
+        st.write(st.session_state)
+    else:
+        for k, key in enumerate(st.session_state):
+            del st.session_state[key] 
+            st.rerun()
+            zeraWidget(0)
 
 def ckeckPlaces(): 
     placeVoid = False
@@ -116,6 +122,7 @@ def main():
     #iniKeys(0, '')
     optionsCred = ["Crédito Principal", "Honorários Contratuais", "Honorários Sucumbenciais"] 
     optionsCount = ["Conta-Corrente", "Conta-Poupança"]   
+    zeraWidget(0)
     formPdf = 'formTJMA.pdf'
     formPdf, precat, requer, proc, obj, modelOne, modelTwo, bank, agency, verify, cpf, cpfV, edital, rodada, count, countV = ['' for w in range(16)]
     formPdf = 'formTJMA.pdf'
