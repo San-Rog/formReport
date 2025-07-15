@@ -118,7 +118,7 @@ def main():
             precat = st.text_input('Precatório n°', key=allKeys[0], value=st.session_state[allKeys[0]])
             requer = st.text_input('Requerente(s)', key=allKeys[1], value=st.session_state[allKeys[1]])
             proc = st.text_input('Referência (Ação Originária/Execução)', key=allKeys[2], value=st.session_state[allKeys[2]])
-            obj = st.multiselect('Crédito Negociado', optionsCred, key= allKeys[3], default=[])
+            obj = st.multiselect('Crédito Negociado', optionsCred, key= optionsCred[0], default=[])
         with colBank:
             bank = st.text_input('Banco', key='bank')
             colAgency, colDigit = st.columns([6.2, 2])
@@ -166,7 +166,7 @@ if __name__ == '__main__':
     global optionsCount, optionsCred
     optionsCred = ["Crédito Principal", "Honorários Contratuais", "Honorários Sucumbenciais"] 
     optionsCount = ["Conta-Corrente", "Conta-Poupança"]  
-    allKeys = ['prc', 'req', 'process', 'ojct']
-    #zeraWidget(0)
+    allKeys = ['prc', 'req', 'process']
+    zeraWidget(0)
     st.set_page_config(layout="wide")
     main()
