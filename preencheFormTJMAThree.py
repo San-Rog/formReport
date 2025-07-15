@@ -163,22 +163,23 @@ def main():
         message('Dupla marcação de contas bancárias', 'Assinale apenas conta-corrente ou conta-poupança!')
         time.sleep(3)
         st.rerun() 
-    pdfCreate = ''    
-    colCreate, colDown, colOne, colTwo, colThre, colFour = st.columns(spec=6)    
-    if colCreate.button('Preenchimento'):
-        if ckeckPlaces(): 
-            message('Campos vazios', 'Preencha todos os campos!')
-            time.sleep(3)
-        else:
-            pdfCreate = createForm()
-            if len(pdfCreate) > 0:
-                colDown.download_button(
-                                label='Download',
-                                data=pdfCreate,
-                                file_name='formulário_TJMA_preenchido.pdf',
-                                mime='application/octet-stream',
-                )     
-                zeraWidget(1)
+    pdfCreate = ''  
+    with st.container():
+        colCreate, colDown, colClear = st.columns(spec=3)    
+        if colCreate.button('Preenchimento'):
+            if ckeckPlaces(): 
+                message('Campos vazios', 'Preencha todos os campos!')
+                time.sleep(3)
+            else:
+                pdfCreate = createForm()
+                if len(pdfCreate) > 0:
+                    colDown.download_button(
+                                    label='Download',
+                                    data=pdfCreate,
+                                    file_name='formulário_TJMA_preenchido.pdf',
+                                    mime='application/octet-stream',
+                    )     
+                    zeraWidget(1)
                 
 if __name__ == '__main__':
     st.set_page_config(layout="wide")
