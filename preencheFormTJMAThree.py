@@ -170,8 +170,8 @@ def main():
                     if colClear.button('Limpar'):
                         for key in st.session_state:
                             del st.session_state.key
-                        zeraWidget(0)
-                        st.rerun()
+                        main()
+                        #st.rerun()
                 
 if __name__ == '__main__':
     st.set_page_config(layout="wide")
