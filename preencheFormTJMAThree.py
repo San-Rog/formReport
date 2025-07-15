@@ -87,15 +87,9 @@ def zeraWidget(opt):
                     st.session_state[key] = '' 
         st.write(st.session_state)
     else:
-        for k, key in enumerate(allKeys):
+        for k, key in enumerate(st.session_state):
             del st.session_state[key] 
-            if k == 3:
-                st.session_state[key] = []
-            elif k in [7, 8]:
-                st.session_state[key] = False
-            else:
-                st.session_state[key] = ''           
-            #st.rerun()
+            st.session_state[key] = '' 
 
 def ckeckPlaces(): 
     placeVoid = False
