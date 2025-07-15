@@ -77,13 +77,13 @@ def message(head, text):
 
 def zeraWidget(opt):
     if opt == 0:
-        for k, key in enumerate(allKeys):
-            if key not in st.session_state:
-                st.session_state[key] = ''        
+        for k, allKey in enumerate(allKeys):
+            if allKey not in st.session_state:
+                st.session_statekey.allKey = ''        
     else:
-        for k, key in enumerate(allKeys):
-            del st.session_state[key] 
-            st.session_state[key] = '' 
+        for k, allKey in enumerate(allKeys):
+            del st.session_state.allKey 
+            st.session_state.allKey = '' 
 
 def ckeckPlaces(): 
     placeVoid = False
