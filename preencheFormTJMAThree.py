@@ -109,13 +109,13 @@ def main():
     global optionsCount, optionsCred
     global allKeys 
     allKeys = ['prc', 'req', 'process']
-    zeraWidget(0)
     optionsEdit = [str(n) for n in range(1, 5)]
     optionsRod = [str(n) for n in range(1, 5)]
     keysCount = ['um', 'dois']
     iniKeys(0, '')
     optionsCred = ["Crédito Principal", "Honorários Contratuais", "Honorários Sucumbenciais"] 
     optionsCount = ["Conta-Corrente", "Conta-Poupança"]   
+    zeraWidget(0)
     formPdf = 'formTJMA.pdf'
     formPdf, precat, requer, proc, obj, modelOne, modelTwo, bank, agency, verify, cpf, cpfV, edital, rodada, count, countV = ['' for w in range(16)]
     formPdf = 'formTJMA.pdf'
