@@ -85,12 +85,11 @@ def zeraWidget(opt):
                     st.session_state[key] = False
                 else:
                     st.session_state[key] = '' 
-        st.write(st.session_state)
     else:
+        zeraWidget(0)
         for k, key in enumerate(st.session_state):
             del st.session_state[key] 
             st.rerun()
-            zeraWidget(0)
 
 def ckeckPlaces(): 
     placeVoid = False
@@ -174,6 +173,7 @@ def main():
                                     file_name='formulário_TJMA_preenchido.pdf',
                                     mime='application/octet-stream',
                     )
+                    zeraWidget(1)
                 
 if __name__ == '__main__':
     st.set_page_config(layout="wide")
