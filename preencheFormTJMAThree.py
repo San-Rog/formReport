@@ -77,13 +77,14 @@ def message(head, text):
 
 def zeraWidget(opt):
     if opt == 0:
-        for k, allKey in enumerate(allKeys):
-            if allKey not in st.session_state:
-                st.session_state.allKey = ''        
+        for key in allKeys:
+            if key not in st.session_state:
+                st.session_state[key] = ''
+        
     else:
-        for k, allKey in enumerate(allKeys):
-            del st.session_state.allKey 
-            st.session_state.allKey = '' 
+        for key in allKeys:
+            del st.session_state[key] 
+            st.session_state[key] = ''
 
 def ckeckPlaces(): 
     placeVoid = False
@@ -105,10 +106,13 @@ def ckeckPlaces():
 def main():
     global formPdf, precat, requer, proc, obj, modelOne, modelTwo, bank, agency, verify, cpf, cpfV, edital, rodada, count, countV
     global day, mont, year, keysCount
-    #keysCount = ['um', 'dois']
-    #iniKeys(0, '')
-    optionsEdit = [str(w) for w in range(1, 5)]
-    optionsRod = [str(w) for w in range(1, 5)]
+    global optionsCount, optionsCred
+    optionsEdit = [str(n) for n in range(1, 5)]
+    optionsRod = [str(n) for n in range(1, 5)]
+    keysCount = ['um', 'dois']
+    iniKeys(0, '')
+    optionsCred = ["Crédito Principal", "Honorários Contratuais", "Honorários Sucumbenciais"] 
+    optionsCount = ["Conta-Corrente", "Conta-Poupança"]   
     formPdf = 'formTJMA.pdf'
     formPdf, precat, requer, proc, obj, modelOne, modelTwo, bank, agency, verify, cpf, cpfV, edital, rodada, count, countV = ['' for w in range(16)]
     formPdf = 'formTJMA.pdf'
@@ -118,7 +122,7 @@ def main():
             precat = st.text_input('Precatório n°', key=allKeys[0], value=st.session_state[allKeys[0]])
             requer = st.text_input('Requerente(s)', key=allKeys[1], value=st.session_state[allKeys[1]])
             proc = st.text_input('Referência (Ação Originária/Execução)', key=allKeys[2], value=st.session_state[allKeys[2]])
-            obj = st.multiselect('Crédito Negociado', optionsCred, key= optionsCred[0], default=[])
+            obj = st.multiselect('Crédito Negociado', optionsCred, default=[optionsCred[0]], key='obj')
         with colBank:
             bank = st.text_input('Banco', key='bank')
             colAgency, colDigit = st.columns([6.2, 2])
@@ -163,9 +167,6 @@ def main():
                 
 if __name__ == '__main__':
     global allKeys 
-    global optionsCount, optionsCred
-    optionsCred = ["Crédito Principal", "Honorários Contratuais", "Honorários Sucumbenciais"] 
-    optionsCount = ["Conta-Corrente", "Conta-Poupança"]  
     allKeys = ['prc', 'req', 'process']
     zeraWidget(0)
     st.set_page_config(layout="wide")
