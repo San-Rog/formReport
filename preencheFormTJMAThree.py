@@ -76,13 +76,16 @@ def message(head, text):
     config()
 
 def zeraWidget(opt):
+    allKeys = ['prc', 'req']
     if opt == 0:
-        if 'prc' not in st.session_state:
-            st.session_state['prc'] = ''
+        for key in allKeys:
+            if key not in st.session_state:
+                st.session_state[key] = ''
         
     else:
-        del st.session_state['prc'] 
-        st.session_state['prc'] = ''
+        for key in allKeys:
+            del st.session_state[key] 
+            st.session_state[key] = ''
 
 def ckeckPlaces(): 
     placeVoid = False
