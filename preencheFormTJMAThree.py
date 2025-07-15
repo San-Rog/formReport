@@ -83,6 +83,8 @@ def zeraWidget(opt):
                     st.session_state[key] = []
                 elif k in [7, 8]:
                     st.session_state[key] = False
+                elif k in [13, 14]:
+                    st.session_state[key] = 0
                 else:
                     st.session_state[key] = ''        
     else:
@@ -92,6 +94,8 @@ def zeraWidget(opt):
                 st.session_state[key] = []
             elif k in [7, 8]:
                 st.session_state[key] = False
+            elif k in [13, 14]:
+                st.session_state[key] = 0
             else:
                 st.session_state[key] = ''    
 
@@ -120,8 +124,8 @@ def main():
     allKeys = ['prc', 'req', 'process', 'credyt', 'banker', 'num_agency', 'digit_agency', 
               'count_cc', 'count_cp', 'num_count', 'digit_count', 'num_cpf', 'digit_cpf', 
               'num_edt', 'num_rod']
-    optionsEdit = [str(n) for n in range(1, 5)]
-    optionsRod = [str(n) for n in range(1, 5)]
+    optionsEdit = ['' + str(n) for n in range(1, 5)]
+    optionsRod = ['' + str(n) for n in range(1, 5)]
     #iniKeys(0, '')
     optionsCred = ["Crédito Principal", "Honorários Contratuais", "Honorários Sucumbenciais"] 
     optionsCount = ["Conta-Corrente", "Conta-Poupança"]   
@@ -152,8 +156,8 @@ def main():
            cod, codV = st.columns([6.2, 2])
            cpf = cod.text_input('CPF', key=allKeys[11], value=st.session_state[allKeys[11]])
            cpfV = codV.text_input('Verificador', key=allKeys[12], value=st.session_state[allKeys[12]])
-           edital = st.selectbox('Edital Conjunto TJMA/PGE-MA nº___/2025', optionsEdit, key=allKeys[13], index=-1)
-           rodada = st.selectbox('Edital da Rodada de Chamamento n.°', optionsRod, key=allKeys[14], index=-1)
+           edital = st.selectbox('Edital Conjunto TJMA/PGE-MA nº___/2025', optionsEdit, key=allKeys[13], index=st.session_state[allKeys[13]])
+           rodada = st.selectbox('Edital da Rodada de Chamamento n.°', optionsRod, key=allKeys[14], index=st.session_state[allKeys[14]])
     if modelOne and modelTwo:
         del st.session_state[allKeys[7]]
         del st.session_state[allKeys[8]]
