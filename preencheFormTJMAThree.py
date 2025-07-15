@@ -118,7 +118,7 @@ def main():
     global optionsCount, optionsCred
     global allKeys 
     allKeys = ['prc', 'req', 'process', 'credyt', 'banker', 'num_agency', 'digit_agency', 
-              'count_cc', 'count_cp', 'num_count', 'digit_count']
+              'count_cc', 'count_cp', 'num_count', 'digit_count', 'num_cpf', 'digit_cpf']
     optionsEdit = [str(n) for n in range(1, 5)]
     optionsRod = [str(n) for n in range(1, 5)]
     #iniKeys(0, '')
@@ -149,8 +149,8 @@ def main():
             countV = colCountV.text_input('Final',  key=allKeys[10], value=st.session_state[allKeys[10]])
         with colTerm:
            cod, codV = st.columns([6.2, 2])
-           cpf = cod.text_input('CPF', key='cpf')
-           cpfV = codV.text_input('Verificador', key='cpfV')
+           cpf = cod.text_input('CPF', key=allKeys[11], value=st.session_state[allKeys[11]])
+           cpfV = codV.text_input('Verificador', key=allKeys[12], value=st.session_state[allKeys[12]])
            edital = st.selectbox('Edital Conjunto TJMA/PGE-MA nº___/2025', optionsEdit, index=0, key='edital')
            rodada = st.selectbox('Edital da Rodada de Chamamento n.°', optionsRod, index=2, key='rodada')
     if modelOne and modelTwo:
