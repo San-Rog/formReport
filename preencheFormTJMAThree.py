@@ -156,7 +156,7 @@ def main():
     if modelOne and modelTwo:
         del st.session_state[allKeys[7]]
         del st.session_state[allKeys[8]]
-        iniKeys(0, keysCount[1])
+        #iniKeys(0, keysCount[1])
         message('Dupla marcação de contas bancárias', 'Assinale apenas conta-corrente ou conta-poupança!')
         time.sleep(3)
         st.rerun() 
