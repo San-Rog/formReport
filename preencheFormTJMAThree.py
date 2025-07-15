@@ -7,10 +7,12 @@ from datetime import date
 def defineDate():
     dateNow = date.today()
     day= dateNow.day
-    month = dateNow.month
+    mont = dateNow.month
     year = dateNow.year
+    return (day, month, year)
 
 def createForm():
+    day, month, year = defineDate()
     doc = pymupdf.open(formPdf)
     docNew = 'template.pdf' 
     if optionsCred[0] in obj:
@@ -110,7 +112,7 @@ def ckeckPlaces():
 
 def main():
     global formPdf, precat, requer, proc, obj, modelOne, modelTwo, bank, agency, verify, cpf, cpfV, edital, rodada, count, countV
-    global day, month, year, keysCount
+    global day, mont, year, keysCount
     global optionsCount, optionsCred
     global allKeys, keysEdital
     allKeys = ['prc', 'req', 'process', 'credyt', 'banker', 'num_agency', 'digit_agency', 
