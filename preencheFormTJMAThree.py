@@ -113,6 +113,7 @@ def main():
     global day, mont, year, keysCount
     keysCount = ['um', 'dois']
     iniKeys(0, '')
+    zeraWidget(0)
     optionsEdit = [str(w) for w in range(1, 5)]
     optionsRod = [str(w) for w in range(1, 5)]
     formPdf = 'formTJMA.pdf'
@@ -173,6 +174,5 @@ if __name__ == '__main__':
     optionsCred = ["Crédito Principal", "Honorários Contratuais", "Honorários Sucumbenciais"] 
     optionsCount = ["Conta-Corrente", "Conta-Poupança"]  
     allKeys = ['prc', 'req', 'process', 'obj']
-    zeraWidget(0)
     st.set_page_config(layout="wide")
     main()
