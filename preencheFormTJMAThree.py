@@ -123,7 +123,7 @@ def main():
     global allKeys 
     allKeys = ['prc', 'req', 'process', 'credyt', 'banker', 'num_agency', 'digit_agency', 
               'count_cc', 'count_cp', 'num_count', 'digit_count', 'num_cpf', 'digit_cpf', 
-              'num_edital', 'num_rodada']
+              'num_edt', 'num_rod']
     optionsEdit = [str(n) for n in range(1, 5)]
     optionsRod = [str(n) for n in range(1, 5)]
     #iniKeys(0, '')
