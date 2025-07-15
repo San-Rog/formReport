@@ -80,22 +80,18 @@ def zeraWidget(opt):
         for k, key in enumerate(allKeys):
             if key not in st.session_state:
                 if k == 3:
-                    st.session_state[key] = [optionsCred[0]]
+                    st.session_state[key] = []
                 elif k in [7, 8]:
                     st.session_state[key] = False
-                elif k == 13:
-                    st.session_state[key] = 0
                 else:
                     st.session_state[key] = ''        
     else:
         for k, key in enumerate(allKeys):
             del st.session_state[key] 
             if k == 3:
-                st.session_state[key] = [optionsCred[0]]
+                st.session_state[key] = []
             elif k in [7, 8]:
                 st.session_state[key] = False
-            elif k == 13:
-                st.session_state[key] = 0
             else:
                 st.session_state[key] = ''    
 
@@ -157,7 +153,7 @@ def main():
            cpf = cod.text_input('CPF', key=allKeys[11], value=st.session_state[allKeys[11]])
            cpfV = codV.text_input('Verificador', key=allKeys[12], value=st.session_state[allKeys[12]])
            edital = st.selectbox('Edital Conjunto TJMA/PGE-MA nº___/2025', optionsEdit, 
-                                 index=st.session_state[allKeys[13]],  key=allKeys[13])
+                                 index=0,  key=allKeys[13])
            rodada = st.selectbox('Edital da Rodada de Chamamento n.°', optionsRod, 
                                  index=2,  key=allKeys[14])
     if modelOne and modelTwo:
