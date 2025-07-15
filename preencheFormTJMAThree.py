@@ -83,6 +83,10 @@ def zeraWidget(opt):
                     st.session_state[key] = [optionsCred[0]]
                 elif k in [7, 8]:
                     st.session_state[key] = False
+                elif k == 13:
+                    st.session_state[key] = 0
+                elif k == 14:
+                     st.session_state[key] = 2
                 else:
                     st.session_state[key] = ''        
     else:
@@ -118,7 +122,8 @@ def main():
     global optionsCount, optionsCred
     global allKeys 
     allKeys = ['prc', 'req', 'process', 'credyt', 'banker', 'num_agency', 'digit_agency', 
-              'count_cc', 'count_cp', 'num_count', 'digit_count', 'num_cpf', 'digit_cpf']
+              'count_cc', 'count_cp', 'num_count', 'digit_count', 'num_cpf', 'digit_cpf', 
+              'num_edital', 'num_rodada']
     optionsEdit = [str(n) for n in range(1, 5)]
     optionsRod = [str(n) for n in range(1, 5)]
     #iniKeys(0, '')
@@ -151,8 +156,10 @@ def main():
            cod, codV = st.columns([6.2, 2])
            cpf = cod.text_input('CPF', key=allKeys[11], value=st.session_state[allKeys[11]])
            cpfV = codV.text_input('Verificador', key=allKeys[12], value=st.session_state[allKeys[12]])
-           edital = st.selectbox('Edital Conjunto TJMA/PGE-MA nº___/2025', optionsEdit, index=0, key='edital')
-           rodada = st.selectbox('Edital da Rodada de Chamamento n.°', optionsRod, index=2, key='rodada')
+           edital = st.selectbox('Edital Conjunto TJMA/PGE-MA nº___/2025', optionsEdit, 
+                                 index=st.session_state[allKeys[13]],  key=allKeys[13]])
+           rodada = st.selectbox('Edital da Rodada de Chamamento n.°', optionsRod, 
+                                 index=st.session_state[allKeys[14]],  key=allKeys[14]]))
     if modelOne and modelTwo:
         del st.session_state[allKeys[7]]
         del st.session_state[allKeys[8]]
