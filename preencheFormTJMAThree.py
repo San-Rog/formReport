@@ -86,7 +86,7 @@ def zeraWidget(opt):
                     st.session_state[key] = False
                 else:
                     st.session_state[key] = '' 
-        if k, key in enumerate(keysEdital):
+        for k, key in enumerate(keysEdital):
             if key not in st.session_state:
                 if k == 1:
                     st.session_state[key] = 0
@@ -101,7 +101,7 @@ def zeraWidget(opt):
                 st.session_state[key] = False
             else:
                 st.session_state[key] = ''   
-        if k, key in enumerate(keysEdital):
+        for k, key in enumerate(keysEdital):
             del st.session_state[key]
             if k == 1:
                 st.session_state[key] = 0
