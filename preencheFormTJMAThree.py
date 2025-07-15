@@ -109,9 +109,6 @@ def ckeckPlaces():
 def main():
     global formPdf, precat, requer, proc, obj, modelOne, modelTwo, bank, agency, verify, cpf, cpfV, edital, rodada, count, countV
     global day, mont, year, keysCount
-    global optionsCount, optionsCred
-    optionsEdit = [str(n) for n in range(1, 5)]
-    optionsRod = [str(n) for n in range(1, 5)]
     keysCount = ['um', 'dois']
     iniKeys(0, '')
     optionsCred = ["Crédito Principal", "Honorários Contratuais", "Honorários Sucumbenciais"] 
@@ -170,6 +167,9 @@ def main():
                 
 if __name__ == '__main__':
     global allKeys 
+    global optionsCount, optionsCred
+    optionsCred = ["Crédito Principal", "Honorários Contratuais", "Honorários Sucumbenciais"] 
+    optionsCount = ["Conta-Corrente", "Conta-Poupança"]  
     allKeys = ['prc', 'req', 'process', 'obj']
     zeraWidget(0)
     st.set_page_config(layout="wide")
