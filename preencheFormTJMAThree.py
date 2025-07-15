@@ -4,15 +4,15 @@ import os
 import time
 from datetime import date
 
-def defineDate():
+def defineNow():
     dateNow = date.today()
     day= dateNow.day
     mont = dateNow.month
     year = dateNow.year
-    return (day, month, year)
+    return (day, mont, year)
 
 def createForm():
-    day, month, year = defineDate()
+    day, mont, year = defineNow()
     doc = pymupdf.open(formPdf)
     docNew = 'template.pdf' 
     if optionsCred[0] in obj:
