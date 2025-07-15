@@ -113,7 +113,7 @@ def main():
     global day, mont, year, keysCount
     global optionsCount, optionsCred
     global allKeys 
-    allKeys = ['prc', 'req', 'process', 'credyt', 'banker']
+    allKeys = ['prc', 'req', 'process', 'credyt', 'banker', 'branch']
     optionsEdit = [str(n) for n in range(1, 5)]
     optionsRod = [str(n) for n in range(1, 5)]
     keysCount = ['um', 'dois']
@@ -134,7 +134,7 @@ def main():
         with colBank:
             bank = st.text_input('Banco',  key=allKeys[4], value=st.session_state[allKeys[4]])
             colAgency, colDigit = st.columns([6.2, 2])
-            agency = colAgency.text_input('Agência', key='agency')
+            agency = colAgency.text_input('Agência', key=allKeys[5], value=st.session_state[allKeys[5]])
             verify = colDigit.text_input('Dígito', key='verify')
             st.caption('')
             colOne, colTwo = st.columns(spec=2)
