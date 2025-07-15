@@ -107,6 +107,9 @@ def main():
     global formPdf, precat, requer, proc, obj, modelOne, modelTwo, bank, agency, verify, cpf, cpfV, edital, rodada, count, countV
     global day, mont, year, keysCount
     global optionsCount, optionsCred
+    global allKeys 
+    allKeys = ['prc', 'req', 'process']
+    zeraWidget(0)
     optionsEdit = [str(n) for n in range(1, 5)]
     optionsRod = [str(n) for n in range(1, 5)]
     keysCount = ['um', 'dois']
@@ -166,8 +169,5 @@ def main():
                 zeraWidget(1)
                 
 if __name__ == '__main__':
-    global allKeys 
-    allKeys = ['prc', 'req', 'process']
-    zeraWidget(0)
     st.set_page_config(layout="wide")
     main()
