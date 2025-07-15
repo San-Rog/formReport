@@ -79,7 +79,7 @@ def zeraWidget(opt):
     if opt == 0:
         for k, allKey in enumerate(allKeys):
             if allKey not in st.session_state:
-                st.session_statekey.allKey = ''        
+                st.session_state.allKey = ''        
     else:
         for k, allKey in enumerate(allKeys):
             del st.session_state.allKey 
