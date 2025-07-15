@@ -119,8 +119,8 @@ def main():
     with st.container(border=2):
         colPrecat, colBank, colTerm = st.columns([2.4, 2, 2], gap='small', vertical_alignment='center')
         with colPrecat:
-            precat = st.text_input('Precatório n°', key='prc', value=st.session_state.prc)
-            requer = st.text_input('Requerente(s)', key='req', value=st.session_state.req)
+            precat = st.text_input('Precatório n°', key=allKeys[0], value=st.session_state[allKeys[0]])
+            requer = st.text_input('Requerente(s)', key=allKeys[1], value=st.session_state[allKeys[1]])
             proc = st.text_input('Referência (Ação Originária/Execução)', key='proc')
             obj = st.multiselect('Crédito Negociado', optionsCred, default=[optionsCred[0]], key='obj')
         with colBank:
