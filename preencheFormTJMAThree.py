@@ -97,7 +97,6 @@ def ckeckPlaces():
             if len(elem.strip()) == 0:
                 placeVoid = True
                 break
-        st.write(e, elem, placeVoid)
     if all([not modelOne, not modelTwo]): 
         placeVoid = True
     return placeVoid            
