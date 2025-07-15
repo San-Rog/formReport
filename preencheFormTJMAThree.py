@@ -121,7 +121,7 @@ def main():
               'count_cc', 'count_cp']
     optionsEdit = [str(n) for n in range(1, 5)]
     optionsRod = [str(n) for n in range(1, 5)]
-    iniKeys(0, '')
+    #iniKeys(0, '')
     optionsCred = ["Crédito Principal", "Honorários Contratuais", "Honorários Sucumbenciais"] 
     optionsCount = ["Conta-Corrente", "Conta-Poupança"]   
     zeraWidget(0)
@@ -153,7 +153,6 @@ def main():
            cpfV = codV.text_input('Verificador', key='cpfV')
            edital = st.selectbox('Edital Conjunto TJMA/PGE-MA nº___/2025', optionsEdit, index=0, key='edital')
            rodada = st.selectbox('Edital da Rodada de Chamamento n.°', optionsRod, index=2, key='rodada')
-    keysCount = [allKeys[7], allKeys[8]]
     if modelOne and modelTwo:
         del st.session_state[allKeys[7]]
         del st.session_state[allKeys[8]]
