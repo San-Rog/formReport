@@ -169,9 +169,15 @@ def main():
                                     )
                     if colClear.button('Limpar'):
                         for key in st.session_state:
-                            del st.session_state.key
-                        st.write(st.session_state)
-                        zeraWidget()
+                            del st.session_state.key    
+                        for k, key in enumerate(allKeys):
+                            if key not in st.session_state:
+                                if k == 3:
+                                    st.session_state[key] = []
+                                elif k in [7, 8]:
+                                    st.session_state[key] = False
+                                else:
+                                    st.session_state[key] = '' 
                         st.rerun()
                 
 if __name__ == '__main__':
