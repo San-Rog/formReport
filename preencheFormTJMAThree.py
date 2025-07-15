@@ -84,10 +84,14 @@ def zeraWidget(opt):
                     st.session_state[key] = []
                 elif k in [7, 8]:
                     st.session_state[key] = False
-                elif k == 13:
-                    st.session_state[key]  = 0
                 else:
-                    st.session_state[key] = ''        
+                    st.session_state[key] = '' 
+        if k, key in enumerate(keysEdital):
+            if key not in st.session_state:
+                if k == 1:
+                    st.session_state[key] = 0
+                else:
+                    st.session_state[key] = 2        
     else:
         for k, key in enumerate(allKeys):
             del st.session_state[key] 
@@ -95,10 +99,14 @@ def zeraWidget(opt):
                 st.session_state[key] = []
             elif k in [7, 8]:
                 st.session_state[key] = False
-            elif k == 13:
-                st.session_state[key]  = 0
             else:
-                st.session_state[key] = ''    
+                st.session_state[key] = ''   
+        if k, key in enumerate(keysEdital):
+            del st.session_state[key]
+            if k == 1:
+                st.session_state[key] = 0
+            else:
+                st.session_state[key] = 2 
 
 def ckeckPlaces(): 
     placeVoid = False
@@ -121,10 +129,10 @@ def main():
     global formPdf, precat, requer, proc, obj, modelOne, modelTwo, bank, agency, verify, cpf, cpfV, edital, rodada, count, countV
     global day, mont, year, keysCount
     global optionsCount, optionsCred
-    global allKeys 
+    global allKeys, keysEdital
     allKeys = ['prc', 'req', 'process', 'credyt', 'banker', 'num_agency', 'digit_agency', 
-              'count_cc', 'count_cp', 'num_count', 'digit_count', 'num_cpf', 'digit_cpf', 
-              'num_xxxx', 'num_yyyy']
+              'count_cc', 'count_cp', 'num_count', 'digit_count', 'num_cpf', 'digit_cpf']
+    keysEdital = ['num_edt', 'num_rodad']
     optionsEdit = [str(n) for n in range(1, 5)]
     optionsRod = [str(n) for n in range(1, 5)]
     #iniKeys(0, '')
@@ -158,8 +166,8 @@ def main():
             cod, codV = st.columns([6.2, 2])
             cpf = cod.text_input('CPF', key=allKeys[11], value=st.session_state[allKeys[11]])
             cpfV = codV.text_input('Verificador', key=allKeys[12], value=st.session_state[allKeys[12]])
-            edital = st.selectbox('Edital Conjunto TJMA/PGE-MA_2025', optionsEdit, key=allKeys[13], index=st.session_state[allKeys[13]])
-            rodada = st.selectbox('Edital da Rodada de Chamamento n.°', optionsRod, key=allKeys[14])
+            edital = st.selectbox('Edital Conjunto TJMA/PGE-MA_2025', optionsEdit, key='num_edital', index=0)
+            rodada = st.selectbox('Edital da Rodada de Chamamento n.°', optionsRod, key='num_rodad', index=2)
     if modelOne and modelTwo:
         del st.session_state[allKeys[7]]
         del st.session_state[allKeys[8]]
