@@ -94,8 +94,7 @@ def zeraWidget(opt):
                 st.session_state[key] = False
             else:
                 st.session_state[key] = ''           
-            st.rerun()
-            zeraWidget(0)
+            #st.rerun()
 
 def ckeckPlaces(): 
     placeVoid = False
