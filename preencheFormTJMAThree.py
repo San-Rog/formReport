@@ -118,7 +118,7 @@ def main():
     global optionsCount, optionsCred
     global allKeys 
     allKeys = ['prc', 'req', 'process', 'credyt', 'banker', 'num_agency', 'digit_agency', 
-              'count_cc', 'count_cp']
+              'count_cc', 'count_cp', 'num_count', 'digit_count']
     optionsEdit = [str(n) for n in range(1, 5)]
     optionsRod = [str(n) for n in range(1, 5)]
     #iniKeys(0, '')
@@ -145,8 +145,8 @@ def main():
             modelOne = colOne.checkbox(optionsCount[0], key=allKeys[7], value=st.session_state[allKeys[7]])
             modelTwo = colTwo.checkbox(optionsCount[1],  key=allKeys[8], value=st.session_state[allKeys[8]])
             colCount, colCountV = st.columns([6.2, 2])
-            count = colCount.text_input('Conta', key='count')
-            countV = colCountV.text_input('Final', key='countV')
+            count = colCount.text_input('Conta',  key=allKeys[9], value=st.session_state[allKeys[9]])
+            countV = colCountV.text_input('Final',  key=allKeys[10], value=st.session_state[allKeys[10]])
         with colTerm:
            cod, codV = st.columns([6.2, 2])
            cpf = cod.text_input('CPF', key='cpf')
