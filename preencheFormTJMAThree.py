@@ -80,7 +80,7 @@ def zeraWidget(opt):
         if key not in st.session_state:
             if k == 3:
                 st.session_state[key] = []
-             elif k in [7, 8]:
+            elif k in [7, 8]:
                 st.session_state[key] = False
             else:
                 st.session_state[key] = '' 
