@@ -179,8 +179,8 @@ def main():
                                     file_name='formulário_TJMA_preenchido.pdf',
                                     mime='application/octet-stream',
                     )
-                    time.sleep(4)
-                    zeraWidget(1)
+        if colClear.button('Limpar dados'):
+            zeraWidget(1)
                 
 if __name__ == '__main__':
     st.set_page_config(layout="wide")
