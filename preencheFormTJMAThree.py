@@ -105,8 +105,8 @@ def ckeckPlaces():
 def main():
     global formPdf, precat, requer, proc, obj, modelOne, modelTwo, bank, agency, verify, cpf, cpfV, edital, rodada, count, countV
     global day, mont, year, keysCount
-    keysCount = ['um', 'dois']
-    iniKeys(0, '')
+    #keysCount = ['um', 'dois']
+    #iniKeys(0, '')
     optionsEdit = [str(w) for w in range(1, 5)]
     optionsRod = [str(w) for w in range(1, 5)]
     formPdf = 'formTJMA.pdf'
