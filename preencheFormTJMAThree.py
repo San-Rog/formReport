@@ -80,7 +80,7 @@ def zeraWidget(opt):
         for k, key in enumerate(allKeys):
             if key not in st.session_state:
                 if k == 3:
-                    st.session_state[key] = optionsCred[0]
+                    st.session_state[key] = [optionsCred[0]]
                 else:
                     st.session_state[key] = ''
         
