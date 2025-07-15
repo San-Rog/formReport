@@ -89,7 +89,7 @@ def zeraWidget(opt):
     else:
         for k, key in enumerate(allKeys):
             del st.session_state[key] 
-            if k == 3 or k == 13:
+            if k == 3:
                 st.session_state[key] = []
             elif k in [7, 8]:
                 st.session_state[key] = False
