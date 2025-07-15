@@ -78,7 +78,9 @@ def message(head, text):
 def zeraWidget():
     allKeys = ['precat', 'requer', 'proc', 'bank', 'agency', 'verify', 'cpf', 'cpfV', 'edital', 'rodada', 'count', 'countV']
     if allKeys[0] not in st.session_state:
-         st.session_state[key] = ''
+        st.session_state[allKeys[0]] = ''
+    else:
+        del  st.session_state[allKeys[0]] 
 
 def ckeckPlaces(): 
     placeVoid = False
