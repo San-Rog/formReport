@@ -162,5 +162,6 @@ def main():
                 zeraWidget()
                 
 if __name__ == '__main__':
+    zeraWidget()
     st.set_page_config(layout="wide")
     main()
