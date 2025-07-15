@@ -75,7 +75,7 @@ def message(head, text):
         st.markdown(text)
     config()
 
-def zeraWidget(opt):
+def zeraWidget():
     for k, key in enumerate(allKeys):
         if key not in st.session_state:
             if k == 3:
@@ -170,8 +170,9 @@ def main():
                     if colClear.button('Limpar'):
                         for key in st.session_state:
                             del st.session_state.key
-                        main()
-                        #st.rerun()
+                        st.write(st.session_state)
+                        zeraWidget()
+                        st.rerun()
                 
 if __name__ == '__main__':
     st.set_page_config(layout="wide")
