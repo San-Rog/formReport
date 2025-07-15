@@ -77,9 +77,10 @@ def message(head, text):
 
 def zeraWidget():
     if 'prc' not in st.session_state:
-        st.session_state.prc = ''
+        st.session_state['prc'] = ''
     else:
-        del  st.session_state.prc 
+        del st.session_state.prc 
+        st.session_state['prc'] = ''
 
 def ckeckPlaces(): 
     placeVoid = False
