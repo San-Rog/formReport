@@ -85,12 +85,6 @@ def zeraWidget(opt):
                     st.session_state[key] = False
                 else:
                     st.session_state[key] = '' 
-        st.write(st.session_state)
-    else:
-        st.write(st.session_state)
-        for k, key in enumerate(allKeys):
-            if key in st.session_state:
-                del st.session_state[key]            
 
 def ckeckPlaces(): 
     placeVoid = False
@@ -122,7 +116,6 @@ def main():
     #iniKeys(0, '')
     optionsCred = ["Crédito Principal", "Honorários Contratuais", "Honorários Sucumbenciais"] 
     optionsCount = ["Conta-Corrente", "Conta-Poupança"]   
-    zeraWidget(0)
     formPdf = 'formTJMA.pdf'
     formPdf, precat, requer, proc, obj, modelOne, modelTwo, bank, agency, verify, cpf, cpfV, edital, rodada, count, countV = ['' for w in range(16)]
     formPdf = 'formTJMA.pdf'
@@ -174,8 +167,6 @@ def main():
                                     file_name='formulário_TJMA_preenchido.pdf',
                                     mime='application/octet-stream',
                     )
-        if colClear.button('Limpar dados'):
-            zeraWidget(1)
                 
 if __name__ == '__main__':
     st.set_page_config(layout="wide")
